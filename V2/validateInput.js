@@ -27,8 +27,14 @@ const validateInput1 = ({ inRouteObject }) => {
     // Step 1 : Validate Root
 
     if (inRouteObject.root !== "Api") {
-        console.log("Invalid root");
-        return false;
+        const ifExists = fs.existsSync(path.join(process.pwd(), inRouteObject.root));
+
+        if (ifExists) {
+            console.log("Api already present");
+            return false;
+        };
+
+        return true
     };
 
     // Step 2 : Validate Version
@@ -72,8 +78,15 @@ const validateInput = ({ inRouteObject }) => {
     // Step 1 : Validate Root
 
     if (inRouteObject.root) {
-        console.log("Invalid root");
-        return false;
+        const ifExists = fs.existsSync(path.join(process.cwd(), inRouteObject.root));
+
+        if (ifExists) {
+            console.log("Api already present");
+            return false;
+        };
+
+        return true
+
     };
 
     // Step 2 : Validate Version

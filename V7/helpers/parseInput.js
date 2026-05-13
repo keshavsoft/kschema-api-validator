@@ -7,8 +7,6 @@ const parseInput = (input) => {
 
         return null;
     };
-
-
     
     const [root, version, tableName, command] = parts;
 

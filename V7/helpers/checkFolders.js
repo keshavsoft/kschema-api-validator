@@ -1,4 +1,4 @@
-  import fs from "fs";
+import fs from "fs";
 import path from "path";
 
 const checkFolders = ({ inRouteObject }) => {
@@ -11,6 +11,7 @@ const checkFolders = ({ inRouteObject }) => {
         inRouteObject.tableName,
         inRouteObject.command
     ];
+
     let currentPath = process.cwd();
 
     for (let i = 0; i < folders.length; i++) {
@@ -20,8 +21,7 @@ const checkFolders = ({ inRouteObject }) => {
         if (!fs.existsSync(path.join(currentPath, folderName))) {
 
             console.log(
-                `${folderName} folder missing at location ${
-                    currentPath.replace(process.cwd(), "").replaceAll("\\", "/") || "/"
+                `${folderName} folder missing at location ${currentPath.replace(process.cwd(), "").replaceAll("\\", "/") || "/"
                 }`
             );
 
